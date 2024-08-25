@@ -1,11 +1,14 @@
-from tensorflow.keras.models import load_model
-from tensorflow.keras.image import img_to_array
-from tensorflow.keras.preprocessing import image
-import cv2
+from keras.models import load_model
+from keras.utils import img_to_array
+# import os
 import numpy as np
 
-face_classifier = cv2.CascadeClassifier(r"C:\Users\Victor\Desktop\OPA saker\ai2_del2_modell\haarcascade_frontalface_default.xml")
-emotion_classifer = load_model(r"C:\Users\Victor\Desktop\OPA saker\ai2_del2_modell\model\model.keras")
+# os.add_dll_directory("C://Users/vicke/anaconda3/")
+
+import cv2
+
+face_classifier = cv2.CascadeClassifier(r"haarcascade_frontalface_default.xml")
+emotion_classifer = load_model(r"model\model.keras")
 
 emotion_labels = ['Angry','Disgust','Fear','Happy','Neutral','Sad','Surprise']
 
@@ -35,7 +38,7 @@ while True:
 
         cv2.imshow('Emotion and Object Detector', frame)
 
-    if cv2.watKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
 cap.release()
