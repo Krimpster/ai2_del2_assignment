@@ -3,8 +3,8 @@ from keras.utils import img_to_array
 import numpy as np
 import cv2
 
-face_classifier = cv2.CascadeClassifier(r"haarcascade_frontalface_default.xml")
-emotion_classifer = load_model(r"model.keras")
+face_classifier = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+emotion_classifer = load_model("model.keras")
 
 emotion_labels = ['Angry','Disgust','Fear','Happy','Neutral','Sad','Surprise']
 
