@@ -2,5 +2,4 @@ tensorflow
 pandas
 numpy
 opencv-python-headless
-streamlit
 streamlit-webrtc

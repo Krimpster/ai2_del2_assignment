@@ -12,6 +12,10 @@ from typing import List, NamedTuple
 import streamlit as st
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
 
+import os
+if not os.path.isfile("model.keras"):
+    raise FileNotFoundError("model.keras file is missing!")
+
 face_classifier = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 emotion_classifer = load_model(r"/mount/src/ai2_del2_assignment/model.keras")
 
