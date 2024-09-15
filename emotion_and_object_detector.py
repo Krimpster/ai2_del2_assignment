@@ -8,7 +8,7 @@ import os
 import streamlit as st
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
 
-model_path = "model.keras"
+model_path = "model.h5"
 
 st.write("Current directory:", os.getcwd())
 st.write("Files in directory:", os.listdir())
@@ -16,7 +16,7 @@ st.write("Files in directory:", os.listdir())
 if not os.path.isfile(model_path):
     st.error(f"File not found: {model_path}. Please ensure the file is in the correct path.")
 else:
-    emotion_classifer = load_model(model_path, compile=False)
+    emotion_classifer = load_model(model_path)
     st.write("Model loaded successfully.")
 
 face_classifier = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
