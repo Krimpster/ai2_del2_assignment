@@ -48,8 +48,7 @@ class VideoTransformer(VideoTransformerBase):
 
         return img
     
-def main():
-    st.title("Real time facial emotion classifer")
-    st.header("Webcam Live Feed")
-    st.write("Click on start to use webcam and detect your face emotion")
-    webrtc_streamer(key="example", video_transformer_factory=VideoTransformer)
+st.title("Real time facial emotion classifer")
+st.header("Webcam Live Feed")
+st.write("Click on start to use webcam and detect your face emotion")
+webrtc_streamer(key="example", video_transformer_factory=VideoTransformer)
