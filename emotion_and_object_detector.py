@@ -15,6 +15,9 @@ from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
 
 model_path = "model.keras"
 
+st.write("Current directory:", os.getcwd())
+st.write("Files in directory:", os.listdir())
+
 if not os.path.isfile(model_path):
     st.error(f"File not found: {model_path}. Please ensure the file is in the correct path.")
 else:
