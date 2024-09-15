@@ -1,14 +1,9 @@
-import keras
 from keras.models import load_model
 from keras.utils import img_to_array
 
-import logging
-import queue
 import numpy as np
 import cv2
 import os
-
-from typing import List, NamedTuple
 
 import streamlit as st
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
@@ -21,7 +16,7 @@ st.write("Files in directory:", os.listdir())
 if not os.path.isfile(model_path):
     st.error(f"File not found: {model_path}. Please ensure the file is in the correct path.")
 else:
-    emotion_classifer = load_model(model_path)
+    emotion_classifer = load_model(model_path, compile=False)
     st.write("Model loaded successfully.")
 
 face_classifier = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
