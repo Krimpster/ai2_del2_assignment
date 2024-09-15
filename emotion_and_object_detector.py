@@ -6,18 +6,22 @@ import logging
 import queue
 import numpy as np
 import cv2
+import os
 
 from typing import List, NamedTuple
 
 import streamlit as st
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
 
-import os
-if not os.path.isfile("model.keras"):
-    raise FileNotFoundError("model.keras file is missing!")
+model_path = "model.keras"
+
+if not os.path.isfile(model_path):
+    st.error(f"File not found: {model_path}. Please ensure the file is in the correct path.")
+else:
+    emotion_classifer = load_model(model_path)
+    st.write("Model loaded successfully.")
 
 face_classifier = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-emotion_classifer = load_model(r"/mount/src/ai2_del2_assignment/model.keras")
 
 emotion_labels = ['Angry','Disgust','Fear','Happy','Neutral','Sad','Surprise']
 
