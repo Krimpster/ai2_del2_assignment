@@ -13,7 +13,7 @@ import streamlit as st
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
 
 face_classifier = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-emotion_classifer = load_model("model.keras")
+emotion_classifer = load_model(r"/mount/src/ai2_del2_assignment/model.keras")
 
 emotion_labels = ['Angry','Disgust','Fear','Happy','Neutral','Sad','Surprise']
 
