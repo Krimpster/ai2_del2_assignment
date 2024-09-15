@@ -1,23 +1,21 @@
-from keras.models import load_model
 from keras.utils import img_to_array
 
 import numpy as np
 import cv2
 import os
+import requests
 
 import streamlit as st
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
 
-model_path = "model.h5"
+model_url = "https://modelstoragebucketai2.s3.eu-north-1.amazonaws.com/model.keras"
 
-st.write("Current directory:", os.getcwd())
-st.write("Files in directory:", os.listdir())
+response = requests.get(model_url)
+with open("model.keras", "wb") as file:
+    file.write(response.content)
 
-if not os.path.isfile(model_path):
-    st.error(f"File not found: {model_path}. Please ensure the file is in the correct path.")
-else:
-    emotion_classifer = load_model(model_path)
-    st.write("Model loaded successfully.")
+from tensorflow.keras.models import load_model
+emotion_classifer = load_model("model.keras")
 
 face_classifier = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
