@@ -2,12 +2,10 @@ from keras.models import load_model
 from keras.utils import img_to_array
 
 import numpy as np
-import cv2
-
-from typing import List, NamedTuple
+import opencv_python as cv2
 
 face_classifier = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-emotion_classifer = load_model("model.keras")
+emotion_classifer = load_model("/model/model.keras")
 
 emotion_labels = ['Angry','Disgust','Fear','Happy','Neutral','Sad','Surprise']
 

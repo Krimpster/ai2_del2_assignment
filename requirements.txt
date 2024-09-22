@@ -1,5 +1,5 @@
 tensorflow == 2.17.0
 pandas
 numpy
-opencv-python-headless
+opencv-python
 streamlit-webrtc
